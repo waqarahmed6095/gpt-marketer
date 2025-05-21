@@ -6,3 +6,7 @@
 /.idea/vcs.xml
 /backend/agents/writer.py
 /gpt-marketer/
+
+.env
+.venv/
+__pycache__/

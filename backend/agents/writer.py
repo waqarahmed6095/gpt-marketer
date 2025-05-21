@@ -1,8 +1,10 @@
 from datetime import datetime
-from langchain.adapters.openai import convert_openai_messages
-from langchain_openai import ChatOpenAI
+from langchain_community.adapters.openai import convert_openai_messages
+from langchain_anthropic import ChatAnthropic
 import json5 as json
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 sample_json = """
 {
     "subject": subject of the email,
@@ -47,7 +49,7 @@ class WriterAgent:
             "response_format": {"type": "json_object"}
         }
 
-        response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1, model_kwargs=optional_params).invoke(
+        response = ChatAnthropic(model='claude-3-5-sonnet-20240620', max_retries=1, api_key=os.getenv("ANTHROPIC_API_KEY")).invoke(
             lc_messages).content
         return json.loads(response)
 
@@ -78,7 +80,7 @@ class WriterAgent:
             "response_format": {"type": "json_object"}
         }
 
-        response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1, model_kwargs=optional_params).invoke(
+        response = ChatAnthropic(model='claude-3-5-sonnet-20240620', max_retries=1, api_key=os.getenv("ANTHROPIC_API_KEY")).invoke(
             lc_messages).content
         response = json.loads(response)
         print(f"For article: {email['title']}")

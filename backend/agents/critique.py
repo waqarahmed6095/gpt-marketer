@@ -1,8 +1,8 @@
 import sys
 from pathlib import Path
 from datetime import datetime
-from langchain.adapters.openai import convert_openai_messages
-from langchain_openai import ChatOpenAI
+from langchain_community.adapters.openai import convert_openai_messages
+from langchain_anthropic import ChatAnthropic
 from .models.spam_model import SpamClassifier
 import os
 
@@ -63,7 +63,7 @@ class CritiqueAgent:
             }]
 
         lc_messages = convert_openai_messages(prompt)
-        response = ChatOpenAI(model='gpt-4', max_retries=1, max_tokens=400).invoke(lc_messages).content
+        response = ChatAnthropic(model='claude-3-5-sonnet-20240620', max_retries=1, api_key=os.getenv("ANTHROPIC_API_KEY")).invoke(lc_messages).content
         number_of_revisions = article.get('number_of_revisions')
         if response == 'None' or number_of_revisions == "1" or number_of_revisions == 1: # deterministic approach
             return {'critique': None}

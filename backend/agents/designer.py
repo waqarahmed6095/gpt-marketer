@@ -87,7 +87,7 @@ class DesignerAgent:
             composite_image.save(composite_image_path)
             # print(self.output_dir)
             # Image URL is saved in email dictionary
-            email['merged_logos'] = f'{composite_image_path.replace('frontend/static/', '')}'
+            email['merged_logos'] = f'{composite_image_path.replace("frontend/static/", "")}'
             # print(email['merged_logos'])
 
         # Update the HTML with the new image
