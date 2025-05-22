@@ -6,7 +6,17 @@
 /.idea/vcs.xml
 /backend/agents/writer.py
 /gpt-marketer/
+/frontend/static/outputs/
 
 .env
 .venv/
-__pycache__/
+
+backend/__pycache__/
+backend/agents/__pycache__/
+backend/agents/models/__pycache__/
+backend/agents/models/spam_model.py
+backend/agents/models/spam_model.pyc
+backend/agents/models/spam_model.pyc
+
+
+
