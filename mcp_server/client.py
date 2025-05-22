@@ -30,18 +30,18 @@ server_script = os.path.join(project_dir, "mcp_server", "server.py")
 company_details = {
     "leads": {
         "0": {
-            "name": "",
-            "email": "",
-            "title": "",
-            "company": "",
+            "name": "Assaf Elovic",
+            "email": "assaf.elovic@gmail.com",
+            "title": "CTO",
+            "company": "Tavily",
         }
     },
     "product_description": """""",
-    "user_company": "",
-    "user_email": "",
-    "user_first_name": "",
-    "user_last_name": "",
-    "logo": "",
+    "user_company": "Tavily",
+    "user_email": "rotem@tavily.com",
+    "user_first_name": "Rotem",
+    "user_last_name": "Weiss",
+    "logo": "https://yyz2.discourse-cdn.com/flex004/user_avatar/community.tavily.com/system/144/107_2.png",
 }
 
 llm = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0)

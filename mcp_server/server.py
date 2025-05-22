@@ -14,25 +14,25 @@ mcp = FastMCP("gpt-marketer-mcp")
 
 
 @mcp.tool()
-async def generate_email(company_data: dict):
+async def email_content(company_data: dict):
     """
-    Generate B2B emails for a company to target leads
+    Give the content of the email generated using the  company data:
     Args:
         company_data: The company data to generate emails for
     Returns:
-        emails: html content of the email
+        html_content: html content of the email
     """
     master_agent = MasterAgent()
     try:
         master_agent.run(company_data)
         with open(os.path.join(master_agent.output_dir, "email.html"), "r") as f:
             html_content = f.read()
-        logger.info(f"Emails generated: {html_content}")
+        logger.info(f"Email content generated: {html_content}")
 
         return html_content
     except Exception as e:
-        logger.error(f"Error generating emails: {e}")
-        return "Error generating emails"
+        logger.error(f"Error generating email content: {e}")
+        return "Error generating email content"
 
 
 if __name__ == "__main__":

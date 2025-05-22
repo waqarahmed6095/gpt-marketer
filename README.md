@@ -55,9 +55,13 @@ These agents work together to create a tailored B2B email marketing campaign tha
    export TAVILY_API_KEY=<YOUR_TAVILY_API_KEY>
    export OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
    ```
-3. Install Requirements
+3. Install Requirements (using [uv](https://docs.astral.sh/uv/))
    ```sh
-   pip install -r requirements.txt
+   uv pip install
+   ```
+   Or, to sync with your lockfile and set up the environment:
+   ```sh
+   uv sync
    ```
 4. Configure Target Audience and Products
    ```sh
@@ -65,7 +69,7 @@ These agents work together to create a tailored B2B email marketing campaign tha
    ```
 5. Run the Marketer
    ```sh
-   python marketer.py
+   uv run app.py
    ```
 6. Watch Marketer in Action
 
